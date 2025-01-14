@@ -38,21 +38,21 @@ function stopChanging() {
 
 // Mostrar video con un fade-in
 function showBloodVideo() {
-  if (window.innerWidth > 768) {  // Verifica que la pantalla sea más grande que 768px
+  if (window.innerWidth > 768) {  // Solo en pantallas grandes
     videoContainer.style.opacity = 1;
   }
 }
 
 // Ocultar video con un fade-out
 function hideBloodVideo() {
-  if (window.innerWidth > 768) {  // Verifica que la pantalla sea más grande que 768px
+  if (window.innerWidth > 768) {  // Solo en pantallas grandes
     videoContainer.style.opacity = 0;
   }
 }
 
 // Evento de inicio de presión (mousedown/touchstart)
 function startPress() {
-  if (window.innerWidth > 768) {  // Solo ejecuta en pantallas grandes
+  if (window.innerWidth > 768) {  // Solo ejecutar en pantallas grandes
     if (isChanging) {
       // Si está cambiando, detener el cambio de frases y mostrar el video
       stopChanging();
@@ -65,7 +65,8 @@ function startPress() {
       hideBloodVideo();
     }
   } else {
-    startChanging();  // Reanuda el cambio de frases si es móvil
+    // No hacer nada en pantallas pequeñas
+    startChanging();  // Solo reanuda el cambio de frases
   }
 }
 
