@@ -17,6 +17,7 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column; /* Alinea el contenido verticalmente */
   justify-content: center;
   align-items: center;
   height: calc(100vh - 80px); /* Ajusta con respecto a las instrucciones */
@@ -31,6 +32,7 @@ body {
   opacity: 0.8; /* Modifica transparencia del texto */
   z-index: 2;
   padding: 0 15px; /* Aumenta el espacio a los lados */
+  margin-bottom: 20px; /* Espacio debajo de la frase */
 }
 
 /* Contenedor del video */
@@ -71,11 +73,36 @@ body::before {
   z-index: -2; /* Asegura que el fondo no se vea afectado */
 }
 
+/* Botón para activar/desactivar el video */
+#toggleButton {
+  position: relative;
+  margin: 20px auto;
+  display: block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #e74c3c; /* Rojo sangre */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 5; /* Asegura que el botón esté visible por encima del video */
+  transition: background-color 0.3s ease;
+}
+
+#toggleButton:hover {
+  background-color: #c0392b; /* Oscurece el rojo al pasar el mouse */
+}
+
 /* Media queries para dispositivos móviles */
 @media (max-width: 768px) {
   #quote {
     font-size: 1.5rem; /* Reduce el tamaño de la fuente en pantallas pequeñas */
     padding: 0 20px; /* Añade más margen a la izquierda y derecha */
+  }
+
+  #toggleButton {
+    padding: 8px 15px; /* Ajusta el tamaño del botón en pantallas pequeñas */
+    font-size: 0.9rem; /* Reduce el tamaño de fuente del botón */
   }
 
   /* Hacer que el video sea más pequeño */
@@ -85,6 +112,6 @@ body::before {
 
   /* Hacer que la imagen de fondo sea más pequeña */
   body::before {
-    background-size: 70%; /* Reduces el tamaño de la imagen al 70% de su tamaño original */
+    background-size: 70%; /* Reduce el tamaño de la imagen al 70% de su tamaño original */
   }
 }
