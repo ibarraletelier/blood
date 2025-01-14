@@ -55,7 +55,6 @@ body {
   transition: transform 1s ease; /* Agrega transición de transformación */
   display: block; /* Asegura que no se muestren los controles */
   pointer-events: none; /* Deshabilita la interacción con el video */
-  background: black; /* Fondo negro para el video */
 }
 
 /* Fondo con imagen ajustada */
