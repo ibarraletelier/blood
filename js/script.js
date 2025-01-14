@@ -6,7 +6,6 @@ const quotes = [
   "La sangre de los inocentes mancha la tierra",
   "La vida y la muerte se mezclan con la sangre",
   "La sangre ya está sobre las manos del rey"
-  // Añade el resto de las frases aquí
 ];
 
 // Selecciona el contenedor de las frases y el video
@@ -39,28 +38,34 @@ function stopChanging() {
 
 // Mostrar video con un fade-in
 function showBloodVideo() {
-  videoContainer.style.opacity = 1;
+  if (window.innerWidth > 768) {  // Verifica que la pantalla sea más grande que 768px
+    videoContainer.style.opacity = 1;
+  }
 }
 
 // Ocultar video con un fade-out
 function hideBloodVideo() {
-  videoContainer.style.opacity = 0;
+  if (window.innerWidth > 768) {  // Verifica que la pantalla sea más grande que 768px
+    videoContainer.style.opacity = 0;
+  }
 }
 
 // Evento de inicio de presión (mousedown/touchstart)
-function startPress(e) {
-  e.preventDefault(); // Evitar posibles interferencias con el comportamiento predeterminado
-
-  if (isChanging) {
-    // Si está cambiando, detener el cambio de frases y mostrar el video
-    stopChanging();  // Detiene el cambio de frases cuando se hace clic o se toca
-    showBloodVideo(); // Muestra el video con fade-in
-    bloodVideo.currentTime = 0; // Reinicia el video para que comience desde el inicio
-    bloodVideo.play(); // Asegura que el video se esté reproduciendo desde el inicio
+function startPress() {
+  if (window.innerWidth > 768) {  // Solo ejecuta en pantallas grandes
+    if (isChanging) {
+      // Si está cambiando, detener el cambio de frases y mostrar el video
+      stopChanging();
+      showBloodVideo();
+      bloodVideo.currentTime = 0; // Reinicia el video para que comience desde el inicio
+      bloodVideo.play(); // Asegura que el video se esté reproduciendo desde el inicio
+    } else {
+      // Si no está cambiando, reanudar el cambio de frases y ocultar el video
+      startChanging();
+      hideBloodVideo();
+    }
   } else {
-    // Si no está cambiando, reanudar el cambio de frases y ocultar el video
-    startChanging();  // Reanuda el cambio de frases cuando se hace clic o se toca nuevamente
-    hideBloodVideo(); // Oculta el video con fade-out
+    startChanging();  // Reanuda el cambio de frases si es móvil
   }
 }
 

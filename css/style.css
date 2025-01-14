@@ -88,3 +88,21 @@ body::before {
     background-size: 70%; /* Reduces el tamaño de la imagen al 70% de su tamaño original */
   }
 }
+
+/* Media queries para dispositivos móviles e iPads */
+@media (max-width: 768px) {
+  /* Eliminar video y fondo en móviles */
+  #videoContainer {
+    display: none; /* No mostrar el video en dispositivos móviles */
+  }
+
+  body::before {
+    display: none; /* No mostrar la imagen de fondo en dispositivos móviles */
+  }
+
+  /* Ajustar tamaño de la frase en dispositivos móviles */
+  #quote {
+    font-size: 1.5rem;
+    padding: 0 20px;
+  }
+}
