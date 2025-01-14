@@ -9,11 +9,11 @@ const quotes = [
   // Añade el resto de las frases aquí
 ];
 
-// Selecciona los elementos
+// Elementos HTML
 const quoteElement = document.getElementById("quote");
-const bloodVideo = document.getElementById("bloodVideo");
-const videoContainer = document.getElementById("videoContainer");
 const toggleButton = document.getElementById("toggleButton");
+const videoContainer = document.getElementById("videoContainer");
+const bloodVideo = document.getElementById("bloodVideo");
 
 // Cambiar frase aleatoriamente
 function changeQuote() {
@@ -21,16 +21,15 @@ function changeQuote() {
   quoteElement.textContent = quotes[randomIndex];
 }
 
-// Variables de control
+// Variables para controlar el intervalo y el estado
 let interval;
-let isChanging = false;
-let isVideoVisible = false;
+let isChanging = false; // Indica si está cambiando la frase
 
 // Iniciar el cambio de frases cada 100ms
 function startChanging() {
-  if (isChanging) return;
+  if (isChanging) return; // Si ya está cambiando, no hace nada
   isChanging = true;
-  interval = setInterval(changeQuote, 100);
+  interval = setInterval(changeQuote, 100); // Cambiar cada 100ms
 }
 
 // Detener el cambio de frases
@@ -39,35 +38,26 @@ function stopChanging() {
   isChanging = false;
 }
 
-// Mostrar u ocultar el video
+// Mostrar/ocultar video
 function toggleVideo() {
-  if (isVideoVisible) {
-    hideBloodVideo();
-    stopChanging();
-    toggleButton.textContent = "Activar";
+  if (videoContainer.style.display === "none" || videoContainer.style.display === "") {
+    videoContainer.style.display = "block"; // Muestra el video
+    bloodVideo.currentTime = 0; // Reinicia el video
+    bloodVideo.play(); // Asegura que el video se reproduzca
+    stopChanging(); // Detiene el cambio de frases
   } else {
-    showBloodVideo();
-    startChanging();
-    toggleButton.textContent = "Desactivar";
+    videoContainer.style.display = "none"; // Oculta el video
+    bloodVideo.pause(); // Pausa el video
+    startChanging(); // Reanuda el cambio de frases
   }
-  isVideoVisible = !isVideoVisible;
 }
 
-// Mostrar video con un fade-in
-function showBloodVideo() {
-  videoContainer.style.opacity = 1;
-  bloodVideo.currentTime = 0; // Reinicia el video
-  bloodVideo.play();
-}
-
-// Ocultar video con un fade-out
-function hideBloodVideo() {
-  videoContainer.style.opacity = 0;
-  bloodVideo.pause();
-}
-
-// Configuración inicial
+// Iniciar el cambio de frases al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
   changeQuote(); // Muestra una frase inicial
-  toggleButton.addEventListener("click", toggleVideo); // Vincula el botón con la función
+  startChanging(); // Comienza a cambiar frases
+  videoContainer.style.display = "none"; // Asegura que el video esté oculto inicialmente
 });
+
+// Evento para el botón de activación del video
+toggleButton.addEventListener("click", toggleVideo);
