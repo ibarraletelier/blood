@@ -37,40 +37,24 @@ body {
 
 /* Contenedor del video */
 #videoContainer {
-  position: absolute;
+  position: fixed; /* Fijo entre el fondo y el texto */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -2; /* Asegura que el video esté detrás del texto */
-  opacity: 0; /* Inicialmente invisible */
-  transition: opacity 1s ease; /* Efecto de fade */
-  pointer-events: none; /* Asegura que el video no interfiera con la interacción */
+  z-index: -1; /* Coloca el video detrás del texto */
+  pointer-events: none; /* Asegura que no interfiera con la interacción */
+  display: none; /* Oculto inicialmente */
 }
 
-/* Hacer que el video se ajuste a la imagen de fondo */
+/* Video de fondo */
 #bloodVideo {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Asegura que el video cubra todo el espacio */
-  opacity: 0.3; /* Le da opacidad al video */
-  transition: transform 1s ease; /* Agrega transición de transformación */
-  display: block; /* Asegura que no se muestren los controles */
+  display: block;
+  opacity: 0.5; /* Ajusta la transparencia */
   pointer-events: none; /* Deshabilita la interacción con el video */
-}
-
-/* Fondo con imagen ajustada */
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('../assets/images/background.webp') no-repeat center center;
-  background-size: auto; /* Ajuste el tamaño de la imagen */
-  opacity: 0.3; /* Modifica la transparencia del fondo */
-  z-index: -2; /* Asegura que el fondo no se vea afectado */
 }
 
 /* Botón para activar/desactivar el video */
@@ -105,13 +89,7 @@ body::before {
     font-size: 0.9rem; /* Reduce el tamaño de fuente del botón */
   }
 
-  /* Hacer que el video sea más pequeño */
   #bloodVideo {
-    opacity: 0.6; /* Hazlo más visible en móviles */
-  }
-
-  /* Hacer que la imagen de fondo sea más pequeña */
-  body::before {
-    background-size: 70%; /* Reduce el tamaño de la imagen al 70% de su tamaño original */
+    opacity: 0.7; /* Hazlo más visible en móviles */
   }
 }
