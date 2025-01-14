@@ -22,12 +22,12 @@ function changeQuote() {
 
 // Variables para controlar el intervalo y el estado
 let interval;
-let isChanging = false; // Estado que indica si está cambiando la frase o no
+let isChanging = true; // Estado que indica si está cambiando la frase o no
+let videoIsVisible = false; // Estado que indica si el video está visible
 
 // Iniciar el cambio de frases cada 100ms
 function startChanging() {
-  if (isChanging) return; // Si ya está cambiando, no hace nada
-  isChanging = true;
+  if (!isChanging) return; // Si ya está detenido, no hace nada
   interval = setInterval(changeQuote, 100); // Cambiar cada 100ms
 }
 
@@ -40,11 +40,13 @@ function stopChanging() {
 // Mostrar video con un fade-in
 function showBloodVideo() {
   videoContainer.style.opacity = 1;
+  videoIsVisible = true;
 }
 
 // Ocultar video con un fade-out
 function hideBloodVideo() {
   videoContainer.style.opacity = 0;
+  videoIsVisible = false;
 }
 
 // Evento de inicio de presión (mousedown/touchstart)
