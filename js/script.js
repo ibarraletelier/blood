@@ -38,7 +38,6 @@ function stopChanging() {
 // Mostrar video con un fade-in
 function showBloodVideo() {
   videoContainer.style.opacity = 1;
-  // Aquí ya no se aplica el flip (sin efecto mirror)
 }
 
 // Ocultar video con un fade-out
@@ -48,26 +47,29 @@ function hideBloodVideo() {
 
 // Evento de inicio de presión (mousedown/touchstart)
 function startPress() {
-  stopChanging();  // Detiene el cambio de frases cuando se hace clic o se toca
-  showBloodVideo(); // Muestra el video con fade-in
-  bloodVideo.currentTime = 0; // Reinicia el video para que comience desde el inicio
-  bloodVideo.play(); // Asegura que el video se esté reproduciendo desde el inicio
+  if (isChanging) {
+    stopChanging();  // Detiene el cambio de frases cuando se hace clic o se toca
+    showBloodVideo(); // Muestra el video con fade-in
+    bloodVideo.currentTime = 0; // Reinicia el video para que comience desde el inicio
+    bloodVideo.play(); // Asegura que el video se esté reproduciendo desde el inicio
+  } else {
+    startChanging();  // Reanuda el cambio de frases cuando se hace clic o se toca nuevamente
+    hideBloodVideo(); // Oculta el video con fade-out
+  }
+
+  // Alternar el estado de isChanging para controlar la animación de las frases
+  isChanging = !isChanging;
 }
 
-// Evento de fin de presión (mouseup/touchend)
-function stopPress() {
-  startChanging();  // Reanuda el cambio de frases cuando se suelta el clic o el dedo
-  setTimeout(hideBloodVideo, 1000); // Desaparece el video después de 1 segundo
-}
+// Evento de fin de presión (mouseup/touchend) - ya no es necesario en este caso
+// Ya manejamos todo en startPress()
 
 // Iniciar el cambio de frases al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
   changeQuote();  // Muestra una frase inicial
-  startChanging();  // Comienza a cambiar frases después de un segundo
+  startChanging();  // Comienza a cambiar frases
 });
 
 // Agregar los eventos de clic o toque
 document.body.addEventListener("mousedown", startPress);
 document.body.addEventListener("touchstart", startPress);
-document.body.addEventListener("mouseup", stopPress);
-document.body.addEventListener("touchend", stopPress);
