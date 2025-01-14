@@ -71,24 +71,6 @@ body::before {
   z-index: -2; /* Asegura que el fondo no se vea afectado */
 }
 
-/* Media queries para dispositivos móviles */
-@media (max-width: 768px) {
-  #quote {
-    font-size: 1.5rem; /* Reduce el tamaño de la fuente en pantallas pequeñas */
-    padding: 0 20px; /* Añade más margen a la izquierda y derecha */
-  }
-
-  /* Hacer que el video sea más pequeño */
-  #bloodVideo {
-    opacity: 0.6; /* Hazlo más visible en móviles */
-  }
-
-  /* Hacer que la imagen de fondo sea más pequeña */
-  body::before {
-    background-size: 70%; /* Reduces el tamaño de la imagen al 70% de su tamaño original */
-  }
-}
-
 /* Media queries para dispositivos móviles e iPads */
 @media (max-width: 768px) {
   /* Eliminar video y fondo en móviles */
@@ -106,3 +88,5 @@ body::before {
     padding: 0 20px;
   }
 }
+
+
