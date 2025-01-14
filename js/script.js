@@ -1,18 +1,17 @@
-// Frases de Macbeth
+// Frases de Macbeth (sin la frase inicial que se muestra una vez)
 const quotes = [
-  "La sangre aquí está... interminable",
   "Oh, mancha maldita de sangre",
   "Sangre traerá sangre",
   "La sangre de los inocentes mancha la tierra",
   "La vida y la muerte se mezclan con la sangre",
   "La sangre ya está sobre las manos del rey"
-  // Añade más frases si es necesario
+  // Añade más frases si es necesario, pero nunca incluir la frase inicial
 ];
 
 const quoteElement = document.getElementById("quote");
-const toggleButton = document.getElementById("toggleButton");
+const toggleSwitch = document.getElementById("toggleSwitch");
 let interval;
-let isChanging = true; // Estado inicial: las frases cambian automáticamente
+let isChanging = false; // Comienza con el cambio de frases detenido
 
 // Cambiar frase aleatoriamente
 function changeQuote() {
@@ -20,14 +19,13 @@ function changeQuote() {
   quoteElement.textContent = quotes[randomIndex];
 }
 
-// Iniciar el cambio de frases
+// Iniciar el cambio de frases en bucle infinito
 function startChanging() {
   if (!isChanging) {
     isChanging = true;
-    toggleButton.textContent = "Detener";
+    document.body.style.transition = "background-color 2s ease"; // Efecto de transición
     document.body.style.backgroundColor = "#000"; // Fondo negro
-    clearInterval(interval);
-    interval = setInterval(changeQuote, 100);
+    interval = setInterval(changeQuote, 100); // Cambia la frase cada 100ms en un bucle infinito
   }
 }
 
@@ -35,26 +33,17 @@ function startChanging() {
 function stopChanging() {
   if (isChanging) {
     isChanging = false;
-    toggleButton.textContent = "Reanudar";
     clearInterval(interval);
+    document.body.style.transition = "background-color 2s ease"; // Efecto de transición
     document.body.style.backgroundColor = "#b71c1c"; // Rojo sangre
   }
 }
 
-// Alternar entre iniciar y detener
-function toggleChange() {
-  if (isChanging) {
-    stopChanging();
-  } else {
+// Alternar entre iniciar y detener según el estado del interruptor
+toggleSwitch.addEventListener("change", function() {
+  if (this.checked) {
     startChanging();
+  } else {
+    stopChanging();
   }
-}
-
-// Iniciar el cambio de frases al cargar la página
-document.addEventListener("DOMContentLoaded", () => {
-  changeQuote(); // Mostrar una frase inicial
-  startChanging();
 });
-
-// Agregar evento al botón
-toggleButton.addEventListener("click", toggleChange);
