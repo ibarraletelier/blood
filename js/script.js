@@ -1,14 +1,14 @@
 // Frases de Macbeth
 const quotes = [
-    "La sangre aquí está... interminable",
-    "Oh, mancha maldita de sangre",
-    "Sangre traerá sangre",
-    "La sangre de los inocentes mancha la tierra",
-    "La vida y la muerte se mezclan con la sangre",
-    "La sangre ya está sobre las manos del rey"
-    // Añade el resto de las frases aquí
-  ];
-  
+  "La sangre aquí está... interminable",
+  "Oh, mancha maldita de sangre",
+  "Sangre traerá sangre",
+  "La sangre de los inocentes mancha la tierra",
+  "La vida y la muerte se mezclan con la sangre",
+  "La sangre ya está sobre las manos del rey"
+  // Añade el resto de las frases aquí
+];
+
 // Selecciona el contenedor de las frases y el video
 const quoteElement = document.getElementById("quote");
 const bloodVideo = document.getElementById("bloodVideo");
