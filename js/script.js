@@ -38,11 +38,13 @@ function stopChanging() {
 // Mostrar video con un fade-in
 function showBloodVideo() {
   videoContainer.style.opacity = 1;
+  bloodVideo.play(); // Asegura que el video se esté reproduciendo
 }
 
 // Ocultar video con un fade-out
 function hideBloodVideo() {
   videoContainer.style.opacity = 0;
+  bloodVideo.pause(); // Pausa el video cuando desaparece
 }
 
 // Evento de inicio de presión (mousedown/touchstart)
@@ -51,7 +53,6 @@ function startPress() {
     stopChanging();  // Detiene el cambio de frases cuando se hace clic o se toca
     showBloodVideo(); // Muestra el video con fade-in
     bloodVideo.currentTime = 0; // Reinicia el video para que comience desde el inicio
-    bloodVideo.play(); // Asegura que el video se esté reproduciendo desde el inicio
   } else {
     startChanging();  // Reanuda el cambio de frases cuando se hace clic o se toca nuevamente
     hideBloodVideo(); // Oculta el video con fade-out
@@ -60,9 +61,6 @@ function startPress() {
   // Alternar el estado de isChanging para controlar la animación de las frases
   isChanging = !isChanging;
 }
-
-// Evento de fin de presión (mouseup/touchend) - ya no es necesario en este caso
-// Ya manejamos todo en startPress()
 
 // Iniciar el cambio de frases al cargar la página
 document.addEventListener("DOMContentLoaded", () => {

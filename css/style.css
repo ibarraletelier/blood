@@ -53,6 +53,8 @@ body {
   object-fit: cover; /* Asegura que el video cubra todo el espacio */
   opacity: 0.3; /* Le da opacidad al video */
   transition: transform 1s ease; /* Agrega transición de transformación */
+  display: block; /* Asegura que no se muestren los controles */
+  pointer-events: none; /* Deshabilita la interacción con el video */
 }
 
 /* Fondo con imagen ajustada */
