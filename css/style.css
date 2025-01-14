@@ -11,7 +11,8 @@ body {
   overflow: hidden;
 }
 
-.font{
+/* Estilo de fuente */
+.font {
   font-family: 'Bebas Neue', sans-serif;
 }
 
@@ -24,7 +25,7 @@ body::before {
   width: 100%;
   height: 100%;
   background: url('assets/images/background.webp') no-repeat center center;
-  background-size: cover;
+  background-size: cover; /* Asegura que la imagen cubra el área disponible */
   opacity: 0.7;
   z-index: -1;
   pointer-events: none;
@@ -108,8 +109,14 @@ input:checked + .slider:before {
 
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 600px) {
+  body {
+    flex-direction: column; /* Asegura la alineación vertical en móviles */
+    height: auto; /* Permite que el contenido fluya y se ajuste a la altura */
+  }
+
   .text-container {
     padding: 0 5%; /* Menos espacio alrededor en pantallas pequeñas */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
   }
 
   #quote {
