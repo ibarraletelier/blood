@@ -48,7 +48,9 @@ function hideBloodVideo() {
 }
 
 // Evento de inicio de presión (mousedown/touchstart)
-function startPress() {
+function startPress(e) {
+  e.preventDefault(); // Evitar posibles interferencias con el comportamiento predeterminado
+
   if (isChanging) {
     // Si está cambiando, detener el cambio de frases y mostrar el video
     stopChanging();  // Detiene el cambio de frases cuando se hace clic o se toca
