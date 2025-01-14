@@ -6,6 +6,7 @@ const quotes = [
   "La sangre de los inocentes mancha la tierra",
   "La vida y la muerte se mezclan con la sangre",
   "La sangre ya está sobre las manos del rey"
+  // Añade el resto de las frases aquí
 ];
 
 // Selecciona el contenedor de las frases y el video
@@ -38,35 +39,26 @@ function stopChanging() {
 
 // Mostrar video con un fade-in
 function showBloodVideo() {
-  if (window.innerWidth > 768) {  // Solo en pantallas grandes
-    videoContainer.style.opacity = 1;
-  }
+  videoContainer.style.opacity = 1;
 }
 
 // Ocultar video con un fade-out
 function hideBloodVideo() {
-  if (window.innerWidth > 768) {  // Solo en pantallas grandes
-    videoContainer.style.opacity = 0;
-  }
+  videoContainer.style.opacity = 0;
 }
 
 // Evento de inicio de presión (mousedown/touchstart)
 function startPress() {
-  if (window.innerWidth > 768) {  // Solo ejecutar en pantallas grandes
-    if (isChanging) {
-      // Si está cambiando, detener el cambio de frases y mostrar el video
-      stopChanging();
-      showBloodVideo();
-      bloodVideo.currentTime = 0; // Reinicia el video para que comience desde el inicio
-      bloodVideo.play(); // Asegura que el video se esté reproduciendo desde el inicio
-    } else {
-      // Si no está cambiando, reanudar el cambio de frases y ocultar el video
-      startChanging();
-      hideBloodVideo();
-    }
+  if (isChanging) {
+    // Si está cambiando, detener el cambio de frases y mostrar el video
+    stopChanging();  // Detiene el cambio de frases cuando se hace clic o se toca
+    showBloodVideo(); // Muestra el video con fade-in
+    bloodVideo.currentTime = 0; // Reinicia el video para que comience desde el inicio
+    bloodVideo.play(); // Asegura que el video se esté reproduciendo desde el inicio
   } else {
-    // No hacer nada en pantallas pequeñas
-    startChanging();  // Solo reanuda el cambio de frases
+    // Si no está cambiando, reanudar el cambio de frases y ocultar el video
+    startChanging();  // Reanuda el cambio de frases cuando se hace clic o se toca nuevamente
+    hideBloodVideo(); // Oculta el video con fade-out
   }
 }
 
