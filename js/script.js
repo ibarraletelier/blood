@@ -35,11 +35,13 @@ const quotes = [
   "Aún queda olor a sangre",
   "Da todo el aliento a esos clamorosos mensajeros de la sangre y la muerte",
   "Apártate de mí que no soporto más sangre de los tuyos!",
-  "¡Tú, más sangriento de lo que las palabras pueden expresar"
+  "¡Tú, más sangriento de lo que las palabras pueden expresar",
+  "(Truenos. Aparición segunda, un niño ensangrentado)"
 ];
 
 const quoteElement = document.getElementById("quote");
 const toggleSwitch = document.getElementById("toggleSwitch");
+const indicatorImage = document.getElementById("indicatorImage");
 let interval;
 let isChanging = false;
 
@@ -55,6 +57,11 @@ function startChanging() {
     isChanging = true;
     document.body.style.backgroundColor = "#000";
     interval = setInterval(changeQuote, 100);
+    
+    // Eliminar la imagen del DOM
+    if (indicatorImage) {
+      indicatorImage.remove();
+    }
   }
 }
 
@@ -63,7 +70,7 @@ function stopChanging() {
   if (isChanging) {
     isChanging = false;
     clearInterval(interval);
-    document.body.style.backgroundColor = "#9b1000";
+    document.body.style.backgroundColor = "#7b0c00";
   }
 }
 

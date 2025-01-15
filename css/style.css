@@ -108,3 +108,24 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(26px);
 }
+
+@keyframes redBlink {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(155, 16, 0, 1)); /* Filtro rojo intenso */
+  }
+  50% {
+    opacity: 0.5;
+    filter: drop-shadow(0 0 10px rgba(155, 16, 0, 0.5)); /* Filtro rojo más suave */
+  }
+}
+
+.blinking-image {
+  width: 80px; /* Tamaño ajustable */
+  height: auto; /* Mantén proporción */
+  animation: redBlink 1.5s infinite; /* Animación de parpadeo */
+}
+
+.hidden {
+  display: none;
+}
