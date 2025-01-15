@@ -4,7 +4,7 @@ const quotes = [
   "¡Que se condense mi sangre, que se bloqueen todas las puertas al remordimiento!",
   "En estos casos es aquí donde se nos juzga, porque damos instrucciones sangrientas que, aprendidas, son un tormento para quien las da",
   "¿Cómo no creerán si marcamos con sangre a los que duermen junto a él, en su cámara, y usamos sus puñales, que ellos lo hicieron?",
-  "Todavía te veo; también las gotas, en el filo y en la empuñadura, de una sangre que antes no estaba",
+  "Todavía te veo 🗡️; también las gotas, en el filo y en la empuñadura, de una sangre que antes no estaba",
   "Es mi sangrienta empresa que así crece ante mis ojos",
   "¿Por qué has traído esos puñales hasta aquí? Ve, devuélvelos; mancha con sangre a los dormidos centinelas",
   "¿Podrá lavar la sangre todo el océano de Neptuno?",
