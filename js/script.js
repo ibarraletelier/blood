@@ -24,7 +24,7 @@ const quotes = [
   "Será con sangre, dicen; la sangre llama a la sangre",
   "El cuervo, la urraca y el grajo han descubierto al más oculto de los asesinos sangrientos",
   "He ido muy lejos en el camino de la sangre",
-  "Liberar nuestros festines y banquetes de cuchillos de sangre",
+  "Liberad nuestros festines y banquetes de cuchillos de sangre",
   "Que te enfríe la sangre del simio; que el hechizo así funcionará",
   "Echad la sangre de una cerda cebada con sus nueve lechones",
   "Sé decidido, sanguinario, valiente",
