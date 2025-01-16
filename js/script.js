@@ -35,7 +35,7 @@ const quotes = [
   "Aún queda olor a sangre",
   "Da todo el aliento a esos clamorosos mensajeros de la sangre y la muerte",
   "Apártate de mí que no soporto más sangre de los tuyos!",
-  "¡Tú, más sangriento de lo que las palabras pueden expresar",
+  "¡Tú, más sangriento de lo que las palabras pueden expresar!",
   "(Truenos. Aparición segunda, un niño ensangrentado)"
 ];
 
